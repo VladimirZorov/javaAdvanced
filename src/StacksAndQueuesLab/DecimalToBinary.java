@@ -9,7 +9,7 @@ public class DecimalToBinary {
         int decimal = Integer.valueOf(scanner.nextLine());
 
         ArrayDeque<Integer> stack = new ArrayDeque<>();
-        
+
 
         while (decimal != 0) {
             stack.push(decimal % 2);
