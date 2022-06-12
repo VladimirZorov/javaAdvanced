@@ -15,12 +15,13 @@ public class HotPotato {
         }
 
         while (queue.size() > 1) {
-            for (int i = 0; i < toss; i++) {
+            for (int i = 1; i < toss; i++) {
                 queue.offer(queue.poll());
+            }
                 System.out.println("Removed" + " " + queue.poll());
             }
             System.out.println("Last is" + " " + queue.poll());
         }
 
     }
-}
+
