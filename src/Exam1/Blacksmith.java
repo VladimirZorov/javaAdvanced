@@ -54,9 +54,10 @@ public class Blacksmith {
             System.out.println("Carbon left: none");
         } else {
             List<String> collect = carbon.stream().map(String::valueOf).collect(Collectors.toList());
-            Collections.reverse(collect);
+//            Collections.reverse(collect);
             System.out.println("Carbon left: " + String.join(", ", collect));
         }
+
         sword.entrySet().stream()
                 .filter(e -> e.getValue() != 0)
                 .forEach(el -> System.out.println(el.getKey() + ": " + el.getValue()));
