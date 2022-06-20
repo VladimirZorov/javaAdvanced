@@ -7,6 +7,7 @@ public class MouseandCheese {
     private static int row = 0;
     private static int coll = 0;
     private static int eatenCheese = 0;
+    private static boolean mouseIsInField = true;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -28,48 +29,42 @@ public class MouseandCheese {
         String command = scanner.nextLine();
 
 
-        while (!command.equals("end")) {
+        while (!command.equals("end") && mouseIsInField) {
 
             if (command.equals("up")) {
-                moveMouseUp(field);
+                moveMouse(field, row - 1, coll);
             } else if (command.equals("down")) {
-                MoveMouseDown(field);
+                moveMouse(field, row + 1, coll);
             } else if (command.contains("left")) {
-                MoveMouseLeft(field);
+                moveMouse(field, row, coll - 1);
             } else if (command.contains("right")) {
-                MoveMouseRight(field);
+                moveMouse(field, row, coll + 1);
             }
 
 
             command = scanner.nextLine();
         }
 
+        if (eatenCheese >= 5) {
+            System.out.printf("Great job, the mouse is fed %d cheeses!", eatenCheese);
+        }else {
+            System.out.printf("The mouse couldn't eat the cheeses, she needed %d cheeses more.", (5- eatenCheese));
+        }
+
 
         Print2ndArray(field);
     }
 
-    private static void MoveMouseRight(char[][] field) {
-        int nextRow = row;
-        int nextColl = coll + 1;
-    }
+    private static void moveMouse(char[][] field, int nextRow, int nextColl) {
 
-    private static void MoveMouseLeft(char[][] field) {
-        int nextRow = row;
-        int nextColl = coll - 1;
-    }
-
-    private static void MoveMouseDown(char[][] field) {
-        int nextRow = row + 1;
-        int nextColl = coll;
-    }
-
-    private static void moveMouseUp(char[][] field) {
-        int nextRow = row - 1;
-        int nextColl = coll;
+        if (!isInBounds(field, nextRow, nextColl)){
+            mouseIsInField = false;
+            return;
+        }
 
         if (field[nextRow][nextColl] == 'c') {
-            eatenCheese ++;
-        } else if (field[nextRow][nextColl] == 'B'){
+            eatenCheese++;
+        } else if (field[nextRow][nextColl] == 'B') {
 
         }
 
@@ -78,6 +73,10 @@ public class MouseandCheese {
         row = nextRow;
         coll = nextColl;
 
+    }
+
+    private static boolean isInBounds(char[][] field, int r, int c) {
+        return r >= 0 && r <= field.length && c >= 0 && c <= field[r].length;
     }
 
     private static void Print2ndArray(char[][] field) {
