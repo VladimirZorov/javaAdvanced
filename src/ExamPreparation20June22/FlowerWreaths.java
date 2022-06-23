@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class FlowerWreaths {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -15,24 +16,31 @@ public class FlowerWreaths {
         Arrays.stream(scanner.nextLine().split(", "))
                 .map(Integer::parseInt)
                 .forEach(rosesQueue::push);
-        int sum = 0;
+//        int sum = 0;
         int wreaths = 0;
         int restFlowers = 0;
 
         while (!liliesStack.isEmpty() && !rosesQueue.isEmpty()) {
             int lastLilies = liliesStack.pop();
-            sum = rosesQueue.poll() + lastLilies;
+             int sum = rosesQueue.poll() + lastLilies;
+
+            if (sum > 15) {
+                while (sum > 15) {
+                    sum = sum -2;
+                }
+            }
 
             if (sum == 15) {
                 wreaths++;
-            } else if (sum < 15){
+            } else if (sum < 15) {
                 restFlowers += sum;
-            } else if (sum > 15) {
-
             }
 
+            sum = 0;
+
         }
-        wreaths += wreaths + restFlowers / 15;
+        int wreaths1 = restFlowers/15;
+        wreaths += wreaths1;
 
 
         if (wreaths >= 5) {
