@@ -1,26 +1,44 @@
 package ExamPreparation20June22;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FlowerWreaths {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<Integer> lilies = Arrays.stream(scanner.nextLine().split(", "))
-                .map(Integer::parseInt).toList();
-        List<Integer> roses = Arrays.stream(scanner.nextLine().split(", "))
-                .map(Integer::parseInt).toList();
+        ArrayDeque<Integer> liliesStack = Arrays.stream(scanner.nextLine().split(", "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toCollection(ArrayDeque::new));
+        ArrayDeque<Integer> rosesQueue = new ArrayDeque<>();
 
-        ArrayDeque <Integer> liliesQueue = new ArrayDeque<>(lilies);
-        ArrayDeque <Integer> rosesQueue = new ArrayDeque<>(roses);
+        Arrays.stream(scanner.nextLine().split(", "))
+                .map(Integer::parseInt)
+                .forEach(rosesQueue::push);
+        int sum = 0;
+        int wreaths = 0;
+        int restFlowers = 0;
+
+        while (!liliesStack.isEmpty() && !rosesQueue.isEmpty()) {
+            int lastLilies = liliesStack.pop();
+            sum = rosesQueue.poll() + lastLilies;
+
+            if (sum == 15) {
+                wreaths++;
+            } else if (sum < 15){
+                restFlowers += sum;
+            } else if (sum > 15) {
+
+            }
+
+        }
+        wreaths += wreaths + restFlowers / 15;
 
 
-
-        System.out.println(liliesQueue);
-        System.out.println(rosesQueue);
+        if (wreaths >= 5) {
+            System.out.printf("You made it, you are going to the competition with %d wreaths!", wreaths);
+        } else {
+            System.out.printf("You didn't make it, you need %d wreaths more!", 5 - wreaths);
+        }
     }
 }
