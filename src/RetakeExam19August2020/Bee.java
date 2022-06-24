@@ -3,6 +3,10 @@ package RetakeExam19August2020;
 import java.util.Scanner;
 
 public class Bee {
+
+    public static int row = 0;
+    public static int coll = 0;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
@@ -12,8 +16,31 @@ public class Bee {
         for (int i = 0; i < n; i++) {
             String line = scanner.nextLine();
             field[i] = line.toCharArray();
-        }
 
-        System.out.println(field);
+            if (line.contains("B")) {
+                row = i;
+                coll = line.indexOf("B");
+            }
+
+            int pollination = 0;
+            String command = scanner.nextLine();
+
+            while (!command.equals("End")) {
+                if (command.equals("up")) {
+
+                } else if (command.equals("down")) {
+
+                } else if (command.equals("left")) {
+
+                } else if (command.equals("right")) {
+
+                }
+
+
+                command = scanner.nextLine();
+            }
+
+            System.out.println(field);
+        }
     }
 }
