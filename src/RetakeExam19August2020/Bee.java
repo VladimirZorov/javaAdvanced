@@ -6,6 +6,8 @@ public class Bee {
 
     public static int row = 0;
     public static int coll = 0;
+    public static  int pollinatedFlowers = 0;
+    public static boolean isBeeInField = true;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -21,26 +23,33 @@ public class Bee {
                 row = i;
                 coll = line.indexOf("B");
             }
+        }
+        int pollination = 0;
+        String command = scanner.nextLine();
 
-            int pollination = 0;
-            String command = scanner.nextLine();
+        while (!command.equals("End")) {
+            if (command.equals("up")) {
 
-            while (!command.equals("End")) {
-                if (command.equals("up")) {
+            } else if (command.equals("down")) {
 
-                } else if (command.equals("down")) {
+            } else if (command.equals("left")) {
 
-                } else if (command.equals("left")) {
+            } else if (command.equals("right")) {
 
-                } else if (command.equals("right")) {
+            }
 
-                }
-
+            if (!isBeeInField) {
+                break;
 
                 command = scanner.nextLine();
             }
+            if (!isBeeInField) {
+                System.out.println("Where is the mouse?");
+            }
+
 
             System.out.println(field);
         }
     }
-}
+    }
+
