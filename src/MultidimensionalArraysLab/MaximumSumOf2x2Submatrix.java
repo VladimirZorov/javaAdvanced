@@ -34,10 +34,16 @@ public class MaximumSumOf2x2Submatrix {
                     for (int l = j, n = 0; l <= j + 1 && n <= 1; l++, n++) {
                         tempMat[m][n] = matrix[k][l];
                         tempSum += matrix[k][l];
+                    }
                         if (tempSum > max) {
                             max = tempSum;
-                            maxMat = tempMat;
-                        }
+                            for (int a = 0; a <= 1; a++) {
+                                for (int b = 0; b <= 1; b++) {
+                                    maxMat[a][b] = tempMat[a][b];
+                                }
+
+                            }
+
                     }
                 }
                 tempSum = 0;
