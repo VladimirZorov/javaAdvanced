@@ -25,16 +25,18 @@ public class MaximumSumOf2x2Submatrix {
         }
         int tempSum = 0;
         int max = Integer.MIN_VALUE;
+        int[][] tempMat = new int[2][2];
         int[][] maxMat = new int[2][2];
 
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < coll; j++) {
-                for (int k = i; k <= i + 1; k++) {
-                    for (int l = j; l <= j + 1; l++) {
-                        maxMat[k][l] = matrix[k][l];
+        for (int i = 0; i < row - 1; i++) {
+            for (int j = 0; j < coll - 1; j++) {
+                for (int k = i, m = 0; k <= i + 1 && m <= 1; k++, m++) {
+                    for (int l = j, n = 0; l <= j + 1 && n <= 1; l++, n++) {
+                        tempMat[m][n] = matrix[k][l];
                         tempSum += matrix[k][l];
                         if (tempSum > max) {
                             max = tempSum;
+                            maxMat = tempMat;
                         }
                     }
                 }
@@ -42,7 +44,20 @@ public class MaximumSumOf2x2Submatrix {
 
             }
         }
+        printMatrix(maxMat);
 
-        System.out.println();
+
+        System.out.println(max);
     }
+
+    private static void printMatrix(int[][] maxMat) {
+        for (int i = 0; i <= 1; i++) {
+            for (int j = 0; j <= 1; j++) {
+                System.out.print(maxMat[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+
 }
