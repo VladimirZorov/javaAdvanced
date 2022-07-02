@@ -29,15 +29,17 @@ public class MaximumSumOf2x2Submatrix {
 
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < coll; j++) {
-                for (int k =0; k <= 1; k++) {
-                    for (int l = 0; l <= 1; l++) {
+                for (int k = i; k <= i + 1; k++) {
+                    for (int l = j; l <= j + 1; l++) {
                         maxMat[k][l] = matrix[k][l];
                         tempSum += matrix[k][l];
-                        if (tempSum>max) {
+                        if (tempSum > max) {
                             max = tempSum;
                         }
                     }
                 }
+                tempSum = 0;
+
             }
         }
 
