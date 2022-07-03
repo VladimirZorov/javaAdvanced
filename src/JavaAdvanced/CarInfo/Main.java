@@ -12,7 +12,8 @@ public class Main {
 
             String [] carInfo = scanner.nextLine().split(" ");
 
-            Car car = new Car();
+            String brand = null;
+            Car car = new Car(brand);
 
             car.setBrand(carInfo[0]);
             car.setModel(carInfo[1]);

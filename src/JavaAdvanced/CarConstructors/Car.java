@@ -1,17 +1,9 @@
-package JavaAdvanced.CarInfo;
+package JavaAdvanced.CarConstructors;
 
 public class Car {
-    private String brand;
-    private String model;
-    private int horsePower;
-
-    public Car(String brand) {
-
-    }
-
-    public Car(String brand, String model, int horsePower) {
-
-    }
+    public String brand;
+    public String model;
+    public int horsePower;
 
     public String getBrand() {
         return brand;
@@ -36,5 +28,18 @@ public class Car {
     public void setHorsePower(int horsePower) {
         this.horsePower = horsePower;
     }
+
+    public Car(String brand){
+        this.brand = brand;
+        this.model = "unknown";
+        this.horsePower = -1;
+    }
+
+    public Car(String brand, String model, int horsePower) {
+        this.brand = brand;
+        this.model = model;
+        this.horsePower = horsePower;
+    }
+
 
 }
