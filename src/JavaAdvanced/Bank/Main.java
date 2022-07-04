@@ -1,5 +1,8 @@
 package JavaAdvanced.Bank;
 import JavaAdvanced.Bank.BankAccount;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +10,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String[] command = scanner.nextLine().split(" ");
+
+        Map<String, Double> accounts = new HashMap<>();
 
         while (!command[0].equals("End")) {
             switch (command[0]) {
@@ -16,6 +21,9 @@ public class Main {
                     System.out.println("Account ID" +  account.getId() +  " created");
                     break;
                 case "Deposit":
+                    accounts.put(command[1], Double.parseDouble(command[2]));
+                    System.out.println("Deposited " + command[2] + " to " );
+
                     break;
                 case "SetInterest":
 
