@@ -5,6 +5,15 @@ public class BankAccount {
     private static double interestRate = DEFAULT_INTEREST_RATE;
     private static int bankAccountCount = 1;
     private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private double balance;
 
     BankAccount() {
@@ -20,5 +29,8 @@ public class BankAccount {
     }
     double getInterest(int years) {
         return BankAccount.interestRate + years + this.balance;
+    }
+    public void addAccount() {
+        id = getId();
     }
 }

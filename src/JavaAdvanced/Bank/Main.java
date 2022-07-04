@@ -12,7 +12,8 @@ public class Main {
             switch (command[0]) {
                 case "Create":
                     BankAccount account = new BankAccount();
-                    System.out.println("Account ID1 created");
+                    account.addAccount();
+                    System.out.println("Account ID" +  account.getId() +  " created");
                     break;
                 case "Deposit":
                     break;
