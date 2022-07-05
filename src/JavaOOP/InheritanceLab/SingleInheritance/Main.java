@@ -1,4 +1,4 @@
-package SingleInheritance;
+package JavaOOP.InheritanceLab.SingleInheritance;
 
 public class Main {
     public static void main(String[] args) {

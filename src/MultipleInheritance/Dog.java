@@ -1,4 +1,4 @@
-package SingleInheritance;
+package MultipleInheritance;
 
 public class Dog extends Animal {
 

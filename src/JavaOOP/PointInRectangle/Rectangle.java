@@ -1,4 +1,4 @@
-package JavaOOP.WorkingWithAbstractionLab.PointInRectangle;
+package JavaOOP.PointInRectangle;
 
 public class Rectangle {
     private Point bottomLeft;
