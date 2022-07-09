@@ -1,25 +1,36 @@
 package parrots;
 
 public class Parrot {
-    public String name;
-    public String species;
-    public boolean available = true;
+    private String name;
+    private String species;
+    private boolean available;
 
     public Parrot(String name, String species) {
         this.name = name;
         this.species = species;
+        this.available = true;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getSpecies() {
-        return species;
+        return this.species;
+    }
+
+    public boolean isAvailable() {
+        return this.available;
+    }
+
+    public void setAvailable(boolean bool) {
+        this.available = bool;
     }
 
     @Override
     public String toString() {
-        return "Parrot ({species}): {name}";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Parrot (").append(this.species).append("): ").append(this.name);
+        return sb.toString();
     }
 }

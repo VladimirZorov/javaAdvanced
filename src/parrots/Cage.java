@@ -3,55 +3,77 @@ package parrots;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cage {
 
-    public String name;
-    public int capacity;
-    List<Parrot> data = new ArrayList<>();
+public class Cage {
+    private String name;
+    private int capacity;
+    private List<Parrot> data;
 
     public Cage(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
-        this.data = data;
+        this.data = new ArrayList<>();
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getCapacity() {
-        return capacity;
+        return this.capacity;
     }
 
     public void add(Parrot parrot) {
-        if (data.size() < capacity) {
-            data.add(parrot);
+        if (this.data.size() < this.capacity) {
+            this.data.add(parrot);
         }
     }
 
-    public void remove(String name) {
-        if (data.contains(name)) {
-            data.remove(name);
+    public boolean remove(String name) {
+        for (int i = 0; i < this.data.size(); i++) {
+            if (this.data.get(i).getName().equals(name)) {
+                this.data.remove(i);
+                return true;
+            }
         }
-    }
-    public String sellParrot(String name) {
-        //TODO
-        return name;
+        return false;
     }
 
-    public String sellParrotBySpecies(String name) {
-        //TODO
-        return name;
+    public Parrot sellParrot(String name) {
+       Parrot toReturn = null;
+       for (Parrot r : this.data) {
+           if (r.getName().equals(name)) {
+               r.setAvailable(false);
+               toReturn = r;
+           }
+       }
+        return toReturn;
+    }
+
+    public List<Parrot> sellParrotBySpecies(String species) {
+        List<Parrot> toReturn = new ArrayList<>();
+        this.data.forEach(i -> {
+            if (i.getSpecies().equals(species)) {
+                i.setAvailable(false);
+                toReturn.add(i);
+            }
+        });
+        return toReturn;
     }
 
     public int count() {
-        int pc = data.size();
-        return pc;
+        return this.data.size();
     }
+
     public String report() {
-        return toString("Parrots available at {cageName}:%n +
-        {Parrot 1}
-        {Parrot 2}
-        (…)");
+      StringBuilder sb = new StringBuilder();
+      sb.append("Parrots available at ").append(this.name).append(":").append(System.lineSeparator());
+        for (Parrot r : this.data) {
+            if (r.isAvailable()) {
+                sb.append(r.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString().trim();
     }
+
 }
