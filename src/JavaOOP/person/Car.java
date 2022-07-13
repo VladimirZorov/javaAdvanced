@@ -1,3 +1,5 @@
+package JavaOOP.person;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +9,9 @@ public class Car {
     private double fuelAmount;
     private double fuelForKilometer;
     private double drivingDistance;
-    List<String> models;
 
     public Car() {
 
-    }
-
-    public List<String> getModels() {
-        return models;
-    }
-
-    public void setModels(List<String> models) {
-        this.models = models;
     }
 
     public Car(String model, double fuelAmount,
@@ -27,7 +20,7 @@ public class Car {
         this.fuelAmount = fuelAmount;
         this.fuelForKilometer = fuelForKilometer;
         this.drivingDistance = drivingDistance;
-        models = new ArrayList<String>();
+
     }
 
     public Car(String model, double fuelAmount,
@@ -35,7 +28,6 @@ public class Car {
         this.Model = model;
         this.fuelAmount = fuelAmount;
         this.fuelForKilometer = fuelForKilometer;
-        models = new ArrayList<String>();
     }
 
     public String getModel() {
@@ -80,7 +72,7 @@ public class Car {
     }
 
     public void driving() {
-        models.add(this.Model);
-        drivingDistance = drivingDistance + this.drivingDistance;
+        drivingDistance = getDrivingDistance() + this.drivingDistance;
+
     }
 }
