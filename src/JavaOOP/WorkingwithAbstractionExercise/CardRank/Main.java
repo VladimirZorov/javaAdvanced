@@ -1,7 +1,5 @@
 package JavaOOP.WorkingwithAbstractionExercise.CardRank;
 
-import JavaOOP.WorkingwithAbstractionExercise.CardSuit.CardSuits;
-
 import java.util.Arrays;
 
 public class Main {
