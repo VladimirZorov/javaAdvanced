@@ -2,9 +2,9 @@ package JavaOOP.PolymorphismLab.Shapes;
 
 public class Rectangle extends Shape {
 
-    private Double height;
+    private final Double height;
 
-    private Double width;
+    private final Double width;
 
     public Rectangle(Double height, Double width) {
         this.height = height;
@@ -13,12 +13,18 @@ public class Rectangle extends Shape {
 
     @Override
     public Double calculatePerimeter() {
-        return 2 * height + 2 * width;
+        if (perimeter == null)  {
+            perimeter = 2 * height + 2 * width;
+        }
+        return perimeter;
     }
 
     @Override
     public Double calculateArea() {
-        return height * width;
+        if (area == null) {
+            area = height * width;
+        }
+        return area;
     }
 
 

@@ -2,8 +2,8 @@ package JavaOOP.PolymorphismLab.Shapes;
 
 public abstract class Shape {
 
-    private Double perimeter;
-    private Double area;
+    protected Double perimeter;
+    protected Double area;
 
 
     public abstract Double calculatePerimeter();
