@@ -21,4 +21,5 @@ public class Card {
     public int getPower() {
         return cardRanks.getRankPower() + cardSuits.getSuitPower();
     }
+
 }
