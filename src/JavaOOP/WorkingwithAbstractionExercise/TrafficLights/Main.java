@@ -22,7 +22,14 @@ public class Main {
             trafficLights.add(currentTrafficLight);
 
         }
+        int n = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < n; i++) {
 
-        System.out.println();
+            for (TrafficLight trafficLight : trafficLights) {
+                trafficLight.changeColor();
+                System.out.print(trafficLight.getCurrentColor() + " ");
+            }
+            System.out.println();
+        }
     }
 }
