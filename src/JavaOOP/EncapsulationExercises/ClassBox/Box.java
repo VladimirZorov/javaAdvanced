@@ -2,51 +2,48 @@ package JavaOOP.EncapsulationExercises.ClassBox;
 
 public class Box {
 
-    private double lenght;
+    private double length;
     private double width;
     private double height;
 
     public Box(double length, double width, double height) {
-        this.setLenght(length);
+        this.setLength(length);
         this.setWidth(width);
         this.setHeight(height);
     }
 
-    public void setLenght(double length) {
-        if (isPositive(length)) {
-            this.lenght = length;
-        }
+    public void setLength(double length) {
+        checkForNegative(length, "Length");
+            this.length = length;
     }
 
     public void setWidth(double width) {
-        if (isPositive(width)) {
+        checkForNegative(width, "Width");
             this.width = width;
-        }
     }
 
     public void setHeight(double height) {
-        if (isPositive(height)) {
-            this.height = height;
+        checkForNegative(height, "Height");
+        this.height = height;
+    }
+
+    private void checkForNegative (double argument, String argumentType) {
+        if (argument <= 0) {
+            throw new IllegalArgumentException(argumentType + "cannot be zero or negative.");
         }
     }
 
-    private boolean isPositive(double number) {
-        if (number <= 0) {
-            throw new IllegalArgumentException("Number must be bigger than zero");
-        }
-        return number > 0;
-    }
 
     public double calculateSurfaceArea() {
-        return 2 * this.lenght * this.width + 2 * this.lenght * this.height
+        return 2 * this.length * this.width + 2 * this.length * this.height
                 + 2 * this.width * this.height;
     }
 
     public double calculateLateralSurfaceArea() {
-        return  2 * this.lenght * this.height + 2 * this.width * this.height;
+        return  2 * this.length * this.height + 2 * this.width * this.height;
     }
 
     public double calculateVolume() {
-        return this.lenght * this.height * this.width;
+        return this.length * this.height * this.width;
     }
 }
