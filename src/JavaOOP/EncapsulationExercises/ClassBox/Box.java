@@ -36,4 +36,17 @@ public class Box {
         }
         return number > 0;
     }
+
+    public double calculateSurfaceArea() {
+        return 2 * this.lenght * this.width + 2 * this.lenght * this.height
+                + 2 * this.width * this.height;
+    }
+
+    public double calculateLateralSurfaceArea() {
+        return  2 * this.lenght * this.height + 2 * this.width * this.height;
+    }
+
+    public double calculateVolume() {
+        return this.lenght * this.height * this.width;
+    }
 }
