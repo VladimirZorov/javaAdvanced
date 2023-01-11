@@ -1,4 +1,4 @@
-package JavaOOP.WorkingwithAbstractionExercise.TrafficLights;
+package workingWithAbstraction.TrafficLights;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +11,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        List<String> colors = Arrays.stream(scanner.nextLine().split(" "))
+        List<String> colors = Arrays.stream(scanner.nextLine()
+                        .split(" "))
                 .collect(Collectors.toList());
 
         List<TrafficLight> trafficLights = new ArrayList<>();

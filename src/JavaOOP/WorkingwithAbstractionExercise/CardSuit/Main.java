@@ -1,4 +1,4 @@
-package JavaOOP.WorkingwithAbstractionExercise.CardSuit;
+package workingWithAbstraction.CardSuit;
 
 import java.util.Arrays;
 

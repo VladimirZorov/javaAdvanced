@@ -16,7 +16,7 @@ public class Main {
             String name = personInfo[0];
             int age = Integer.parseInt(personInfo[1]);
             Person person = new Person(name, age);
-            people.add(person);
+//            people.add(person);
         }
 
         people.stream()

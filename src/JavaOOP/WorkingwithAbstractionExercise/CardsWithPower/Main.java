@@ -1,4 +1,4 @@
-package JavaOOP.WorkingwithAbstractionExercise.CardsWithPower;
+package workingWithAbstraction.CardsWithPower;
 
 import java.util.Scanner;
 

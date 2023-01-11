@@ -1,11 +1,12 @@
-package JavaOOP.WorkingwithAbstractionExercise.TrafficLights;
+package workingWithAbstraction.TrafficLights;
+
 
 public class TrafficLight {
 
     private Color currentColor;
 
-    public TrafficLight(Color currentColor) {
-        this.currentColor = currentColor;
+    public TrafficLight(Color cat) {
+        this.currentColor = cat;
     }
 
     public Color getCurrentColor() {
@@ -15,13 +16,13 @@ public class TrafficLight {
     public void  changeColor() {
         switch (currentColor) {
             case RED:
-                this.currentColor = Color.GREEN;
+                currentColor = Color.GREEN;
                 break;
             case GREEN:
-                this.currentColor = Color.YELLOW;
+                currentColor = Color.YELLOW;
                 break;
             case YELLOW:
-                this.currentColor = Color.RED;
+                currentColor = Color.RED;
                 break;
         }
     }

@@ -1,4 +1,4 @@
-package JavaOOP.WorkingwithAbstractionExercise.CardRank;
+package workingWithAbstraction.CardRank;
 
 import java.util.Arrays;
 

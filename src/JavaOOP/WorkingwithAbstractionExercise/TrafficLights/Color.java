@@ -1,4 +1,4 @@
-package JavaOOP.WorkingwithAbstractionExercise.TrafficLights;
+package workingWithAbstraction.TrafficLights;
 
 public enum Color {
     RED,

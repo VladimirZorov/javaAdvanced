@@ -1,4 +1,4 @@
-package JavaOOP.WorkingwithAbstractionExercise.CardsWithPower;
+package workingWithAbstraction.CardsWithPower;
 
 public enum CardRanks {
     ACE(14),
