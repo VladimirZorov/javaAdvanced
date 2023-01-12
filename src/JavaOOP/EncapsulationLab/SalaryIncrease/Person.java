@@ -38,7 +38,7 @@ public class Person {
     @Override
     public String toString() {
         return String
-                .format("%s %s gets %f leva.", firstName, lastName, salary);
+                .format("%s %s gets %.3f leva.", firstName, lastName, salary);
     }
 
     public void increaseSalary(double bonus) {
