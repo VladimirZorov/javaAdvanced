@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-            int[] dimestions = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+            int[] dimestions = Arrays.stream(scanner.nextLine().split(" "))
+                    .mapToInt(Integer::parseInt).toArray();
             int x = dimestions[0];
             int y = dimestions[1];
 
